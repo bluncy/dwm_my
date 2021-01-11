@@ -1,0 +1,33 @@
+--- x.c
++++ x.c
+@@ -1528,13 +1528,20 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
+ 		switch (win.cursor) {
+ 		case 7: /* st extension: snowman (U+2603) */
+ 			g.u = 0x2603;
+-			/* FALLTHROUGH */
++			xdrawglyph(g, cx, cy);
++			break;
+ 		case 0: /* Blinking Block */
+ 		case 1: /* Blinking Block (Default) */
++			if (IS_SET(MODE_BLINK))
++				break;
++			/* FALLTHROUGH */
+ 		case 2: /* Steady Block */
+ 			xdrawglyph(g, cx, cy);
+ 			break;
+ 		case 3: /* Blinking Underline */
++			if (IS_SET(MODE_BLINK))
++				break;
++			/* FALLTHROUGH */
+ 		case 4: /* Steady Underline */
+ 			XftDrawRect(xw.draw, &drawcol,
+ 					borderpx + cx * win.cw,
+@@ -1993,7 +2010,7 @@ main(int argc, char *argv[])
+ {
+ 	xw.l = xw.t = 0;
+ 	xw.isfixed = False;
+-	win.cursor = cursorshape;
++	win.cursor = cursorstyle;
+ 
+ 	ARGBEGIN {
+ 	case 'a':
