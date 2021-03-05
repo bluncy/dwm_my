@@ -86,21 +86,22 @@ static const char *rofidruncmd[] = { "rofi", "-show","drun","-modi","drun", NULL
 //static const char *rofiruncmd[] = { "rofi", "-show","run","-modi","run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 //static const char *termcmd[]  = { "xfce4-terminal", NULL };
+//static const char *browsercmd[]  = { "qutebrowser", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 
-static const char *upvol[]   = { "/home/iron/scripts/vol-up.sh",  NULL };
-static const char *downvol[] = { "/home/iron/scripts/vol-down.sh",  NULL };
-static const char *mutevol[] = { "/home/iron/scripts/vol-toggle.sh",  NULL };
+static const char *upvol[]   = { "/home/iron/dwm_my/scripts/vol-up.sh",  NULL };
+static const char *downvol[] = { "/home/iron/dwm_my/scripts/vol-down.sh",  NULL };
+static const char *mutevol[] = { "/home/iron/dwm_my/scripts/vol-toggle.sh",  NULL };
 
-static const char *wpcmd[]  = { "/home/iron/scripts/wp-change.sh", NULL };
-static const char *sktogglecmd[]  = { "/home/iron/scripts/sck-tog.sh", NULL };
+static const char *wpcmd[]  = { "/home/iron/dwm_my/scripts/wp-change.sh", NULL };
+static const char *sktogglecmd[]  = { "/home/iron/dwm_my/scripts/sck-tog.sh", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
 
-static const char *setcolemakcmd[]  = { "/home/iron/scripts/setxmodmap-colemak.sh", NULL };
-static const char *setqwertycmd[]  = { "/home/iron/scripts/setxmodmap-qwerty.sh", NULL };
+static const char *setcolemakcmd[]  = { "/home/iron/dwm_my/scripts/setxmodmap-colemak.sh", NULL };
+static const char *setqwertycmd[]  = { "/home/iron/dwm_my/scripts/setxmodmap-qwerty.sh", NULL };
 
-static const char *suspendcmd[]  = { "/home/iron/scripts/suspend.sh", NULL };
+static const char *suspendcmd[]  = { "/home/iron/dwm_my/scripts/suspend.sh", NULL };
 
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 

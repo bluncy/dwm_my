@@ -42,10 +42,10 @@ get_bytes
 vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
 vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
 get_vel_recv(){
-	echo ⬇️ $vel_recv;
+	echo ⬇️$vel_recv;
 }
 get_vel_trans(){
-	echo ⬆️ $vel_trans;
+	echo ⬆️$vel_trans;
 }
 print_vel(){
 	echo "$(get_vel_recv)$(get_vel_trans)"
