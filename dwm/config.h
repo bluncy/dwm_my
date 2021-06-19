@@ -82,13 +82,13 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *rofidruncmd[] = { "rofi", "-show","drun","-modi","drun", NULL };
+//static const char *rofidruncmd[] = { "rofi", "-show","drun","-modi","drun", NULL };
 //static const char *rofiruncmd[] = { "rofi", "-show","run","-modi","run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 //static const char *termcmd[]  = { "xfce4-terminal", NULL };
 //static const char *browsercmd[]  = { "qutebrowser", NULL };
-static const char *browsercmd[]  = { "google-chrome-stable", NULL };
-
+//static const char *browsercmd[]  = { "google-chrome-stable", NULL };
+static const char *browsercmd[]  = { "microsoft-edge-beta", NULL };
 static const char *upvol[]   = { "/home/iron/dwm_my/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/iron/dwm_my/scripts/vol-down.sh",  NULL };
 static const char *mutevol[] = { "/home/iron/dwm_my/scripts/vol-toggle.sh",  NULL };
@@ -108,7 +108,7 @@ static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static Key keys[] = {
 	/* modifier            key                      function        argument */
 	{ MODKEY,              XK_d,                    spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,    XK_d,                    spawn,          {.v = rofidruncmd } },
+//	{ MODKEY|ShiftMask,    XK_d,                    spawn,          {.v = rofidruncmd } },
 //	{ MODKEY|ShiftMask,    XK_d,                    spawn,          {.v = rofiruncmd } },
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
