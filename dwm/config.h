@@ -54,6 +54,7 @@ static const Rule rules[] = {
 	{ "Emulator", NULL,       NULL,       0,            1,           -1 },
 	{ "quemu-system-i386", NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "linuxqq",  NULL,       NULL,       1 << 8,       1,           -1 },
 };
 
 /* layout(s) */
@@ -63,8 +64,8 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "Tile",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "Tile",      tile },    /* first entry is default 平铺*/
+	{ "><>",      NULL },    /* no layout function means floating behavior浮动 */
 	{ "[M]",      monocle },
 };
 
@@ -82,7 +83,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-//static const char *rofidruncmd[] = { "rofi", "-show","drun","-modi","drun", NULL };
+static const char *rofidruncmd[] = { "rofi", "-show","drun","-modi","drun", NULL };
 //static const char *rofiruncmd[] = { "rofi", "-show","run","-modi","run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 //static const char *termcmd[]  = { "xfce4-terminal", NULL };
@@ -108,7 +109,7 @@ static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static Key keys[] = {
 	/* modifier            key                      function        argument */
 	{ MODKEY,              XK_d,                    spawn,          {.v = dmenucmd } },
-//	{ MODKEY|ShiftMask,    XK_d,                    spawn,          {.v = rofidruncmd } },
+	{ MODKEY|ShiftMask,    XK_d,                    spawn,          {.v = rofidruncmd } },
 //	{ MODKEY|ShiftMask,    XK_d,                    spawn,          {.v = rofiruncmd } },
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
@@ -123,7 +124,8 @@ static Key keys[] = {
 	{ MODKEY,              XK_backslash,            spawn,          {.v = mutevol } },
 	{ MODKEY,              XK_bracketright,         spawn,          {.v = upvol   } },
 	{ MODKEY,              XK_b,                    spawn,          {.v = wpcmd } },
-	{ 0,                   XK_Print,                spawn,          {.v = screenshotcmd } },
+/*	{ 0,                   XK_Print,                spawn,          {.v = screenshotcmd } },*/
+	{ MODKEY|ShiftMask,    XK_s,                spawn,          {.v = screenshotcmd } },
 	{ MODKEY|ShiftMask,    XK_e,                    rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_u,                    rotatestack,    {.i = -1 } },
 	{ MODKEY,              XK_e,                    focusstack,     {.i = +1 } },
