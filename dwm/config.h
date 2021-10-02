@@ -70,7 +70,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -84,9 +84,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *rofidruncmd[] = { "rofi", "-show","drun","-modi","drun", NULL };
-//static const char *rofiruncmd[] = { "rofi", "-show","run","-modi","run", NULL };
-static const char *termcmd[]  = { "st", NULL };
-//static const char *termcmd[]  = { "xfce4-terminal", NULL };
+static const char *rofiruncmd[] = { "rofi", "-show","run","-modi","run", NULL };
+//static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "xfce4-terminal", NULL };
 //static const char *browsercmd[]  = { "qutebrowser", NULL };
 //static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 static const char *browsercmd[]  = { "microsoft-edge-beta", NULL };
@@ -98,6 +98,7 @@ static const char *wpcmd[]  = { "/home/iron/dwm_my/scripts/wp-change.sh", NULL }
 static const char *sktogglecmd[]  = { "/home/iron/dwm_my/scripts/sck-tog.sh", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
+static const char *readmecmd[] = { "vim","/home/iron/dwm_my/readme.md", NULL };
 
 //static const char *setcolemakcmd[]  = { "/home/iron/dwm_my/scripts/setxmodmap-colemak.sh", NULL };
 //static const char *setqwertycmd[]  = { "/home/iron/dwm_my/scripts/setxmodmap-qwerty.sh", NULL };
@@ -108,14 +109,15 @@ static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
 static Key keys[] = {
 	/* modifier            key                      function        argument */
-	{ MODKEY,              XK_d,                    spawn,          {.v = dmenucmd } },
+/*	{ MODKEY,              XK_d,                    spawn,          {.v = dmenucmd } },*/
 	{ MODKEY|ShiftMask,    XK_d,                    spawn,          {.v = rofidruncmd } },
-/*	{ MODKEY|ShiftMask,    XK_d,                    spawn,          {.v = rofiruncmd } },*/
+	{ MODKEY|ShiftMask,    XK_d,                    spawn,          {.v = rofiruncmd } },
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
 /*	{ MODKEY|ShiftMask,    XK_w,                    spawn,          {.v = setqwertycmd } },*/
 /*	{ MODKEY|ShiftMask,    XK_m,                    spawn,          {.v = setcolemakcmd } },*/
 /*	{ MODKEY|ShiftMask,    XK_p,                    spawn,          {.v = suspendcmd } },*/
+	{ MODKEY|ShiftMask,    XK_r,                    spawn,          {.v = readmecmd } },
 	{ MODKEY|ControlMask,  XK_s,                    spawn,          {.v = sktogglecmd } },
 /*	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },*/
 /*	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = mutevol } },*/
