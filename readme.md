@@ -1,7 +1,10 @@
 这个库是从theniceboy的库FORKED
-fork 本库时，你需要下载feh,picom screenkey,flameshot,rofi来体会全功能
+fork 本库时，你需要下载feh,picom screenkey,flameshot,rofi，xorg-xsetroot来体会全功能
 更多请编译config.h
+
+---
 cp ~/dwm_my/picom/picom.conf ~/.config/picom.conf
+
 ---
 MOD + d			打开dmenu  
 MOD + SHIFT + d  	打开rofi  
